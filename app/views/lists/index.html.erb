@@ -4,66 +4,25 @@
 </div>
 <div class="container mt-4">
   <div class="row">
-    <div class="col-md-6 mb-4">
-      <div class="card h-100 shadow-sm">
-        <img src="<%= tmdb_img(@god_father['backdrop_path']) %>" class="card-img-top" alt="The Godfather" style="height: 200px; object-fit: cover;">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">
-            <%= @god_father['title'] %> <span class="text-warning">★</span> <%= @god_father['vote_average'].ceil(2).to_f %>
-          </h5>
-          <p class="card-text flex-grow-1">
-            <%= @god_father['overview'] %>
-          </p>
-          <div class="mt-auto">
-            <p class="card-text">
-              <small class="text-muted">
-                <i class="fas fa-quote-left"></i> <%= @god_father['tagline'] %>
-              </small>
-              <span><%= link_to "delete", "#", class: "btn btn-sm btn-outline-danger float-end" %></span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 mb-4">
-      <div class="card h-100 shadow-sm">
-        <img src="<%= tmdb_img(@sister_act['backdrop_path']) %>" class="card-img-top" alt="The Godfather" style="height: 200px; object-fit: cover;">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">
-            <%= @sister_act['title'] %> <span class="text-warning">★</span> <%= @sister_act['vote_average'].ceil(2).to_f %>
-          </h5>
-          <p class="card-text flex-grow-1">
-            <%= @sister_act['overview'] %>
-          </p>
-          <div class="mt-auto">
-            <p class="card-text">
-              <small class="text-muted">
-                <i class="fas fa-quote-left"></i> <%= @sister_act['tagline'] %>
-              </small>
-              <span><%= link_to "delete", "#", class: "btn btn-sm btn-outline-danger float-end" %></span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
     <% @lists.each do |list| %>
       <div class="col-md-6 mb-4">
-        <div class="card h-100 shadow-sm">
-          <% if list.photo.attached? %>
-            <%= cl_image_tag(list.photo.key), class: "card-img-top", alt: list.name, style: "height: 200px; object-fit: cover;" %>
-          <% else %>
-            <%= image_tag 'https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-                      class: "card-img-top",
-                      alt: list.name,
-                      style: "height: 200px; object-fit: cover;" %>
-          <% end %>
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">
-              <%= list.name %>
-            </h5>
-            <!-- You can add more content here if needed -->
+        <%= link_to list_path(list), class: "text-decoration-none" do %>
+          <div class="card h-100 shadow-sm">
+            <% if list.photo.attached? %>
+              <%= cl_image_tag(list.photo.key, class: "card-img-top", alt: list.name, style: "height: 200px; object-fit: cover;") %>
+            <% else %>
+              <%= image_tag 'https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+                        class: "card-img-top",
+                        alt: list.name,
+                        style: "height: 200px; object-fit: cover;" %>
+            <% end %>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-dark">
+                <%= list.name %>
+              </h5>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
