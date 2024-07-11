@@ -1,0 +1,80 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 shadow-sm">
+        <img src="<%= tmdb_img(@god_father['backdrop_path']) %>" class="card-img-top" alt="The Godfather" style="height: 200px; object-fit: cover;">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">
+            <%= @god_father['title'] %> <span class="text-warning">★</span> <%= @god_father['vote_average'].ceil(2).to_f %>
+          </h5>
+          <p class="card-text flex-grow-1">
+            <%= @god_father['overview'] %>
+            <%# Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American
+            Corleone crime family. When organized crime family patriarch, Vito Corleone
+            barely survives an attempt on his life, his youngest son, Michael steps in to
+            take care of the would-be killers, launching a campaign of bloody revenge. %>
+          </p>
+          <div class="mt-auto">
+            <p class="card-text">
+              <small class="text-muted">
+                <i class="fas fa-quote-left"></i> <%= @god_father['tagline'] %>
+              </small>
+              <span><%= link_to "delete", "#", class: "btn btn-sm btn-outline-danger float-end" %></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 shadow-sm">
+        <img src="<%= tmdb_img(@sister_act['backdrop_path']) %>" class="card-img-top" alt="The Godfather" style="height: 200px; object-fit: cover;">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">
+            <%= @sister_act['title'] %> <span class="text-warning">★</span> <%= @sister_act['vote_average'].ceil(2).to_f %>
+          </h5>
+          <p class="card-text flex-grow-1">
+            <%= @sister_act['overview'] %>
+            <%# Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American
+            Corleone crime family. When organized crime family patriarch, Vito Corleone
+            barely survives an attempt on his life, his youngest son, Michael steps in to
+            take care of the would-be killers, launching a campaign of bloody revenge. %>
+          </p>
+          <div class="mt-auto">
+            <p class="card-text">
+              <small class="text-muted">
+                <i class="fas fa-quote-left"></i> <%= @sister_act['tagline'] %>
+              </small>
+              <span><%= link_to "delete", "#", class: "btn btn-sm btn-outline-danger float-end" %></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% @lists.each do |list| %>
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="The Godfather" style="height: 200px; object-fit: cover;">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">
+              The Godfather <span class="text-warning">★</span> 8.7
+            </h5>
+            <p class="card-text flex-grow-1">
+              Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American
+              Corleone crime family. When organized crime family patriarch, Vito Corleone
+              barely survives an attempt on his life, his youngest son, Michael steps in to
+              take care of the would-be killers, launching a campaign of bloody revenge.
+            </p>
+            <div class="mt-auto">
+              <p class="card-text">
+                <small class="text-muted">
+                  <i class="fas fa-quote-left"></i> Best Al Pacino movie!
+                </small>
+                <span><%= link_to "delete", "#", class: "btn btn-sm btn-outline-danger float-end" %></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
